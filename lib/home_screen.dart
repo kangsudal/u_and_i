@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:u_and_i/date_provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -68,7 +69,13 @@ class _TopPart extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              showCustomDialog(context);
+              showCustomDialog(context).then((value) async {
+                int timestamp = myDate.selectedDate.millisecondsSinceEpoch;
+                print(myDate.selectedDate);
+                print(timestamp);
+                final prefs = await SharedPreferences.getInstance();
+                prefs.setInt('myTimestampKey', timestamp);
+              });
             },
             icon: Icon(
               Icons.favorite,
