@@ -50,6 +50,9 @@ class _TopPart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var myDate = context.watch<MyDate>();
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+
     return Expanded(
       flex: 1,
       child: Column(
@@ -57,13 +60,11 @@ class _TopPart extends StatelessWidget {
         children: [
           Text(
             '쿠니 수달 처음 만난날',
-            style: TextStyle(
-                color: Colors.white, fontFamily: 'gaegu', fontSize: 30),
+            style: textTheme.headline2,
           ),
           Text(
             '${myDate.selectedDate.year}.${myDate.selectedDate.month}.${myDate.selectedDate.day}',
-            style: TextStyle(
-                color: Colors.white, fontFamily: 'gaegu', fontSize: 20),
+            style: textTheme.headline3,
           ),
           IconButton(
             onPressed: () {
@@ -77,12 +78,7 @@ class _TopPart extends StatelessWidget {
           ),
           Text(
             'D+${myDate.dDay}',
-            style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'gaegu',
-              fontSize: 50,
-              fontWeight: FontWeight.w700,
-            ),
+            style: textTheme.headline1,
           ),
         ],
       ),
