@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -26,19 +28,56 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class _BottomPart extends StatelessWidget {
+class _BottomPart extends StatefulWidget {
   const _BottomPart({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<_BottomPart> createState() => _BottomPartState();
+}
+
+class _BottomPartState extends State<_BottomPart> {
+  Timer? timer;
+  PageController pageController = PageController(
+    initialPage: 0, //0번째 페이지부터 시작
+  );
+  @override
+  void initState() {
+    super.initState();
+    timer = Timer.periodic(Duration(seconds: 3), (timer) {
+      int currentPage = pageController.page!.toInt();
+      int nextPage = currentPage + 1;
+      if (nextPage > 5) {
+        nextPage = 0;
+      }
+      // print(nextPage);
+      pageController.animateToPage(nextPage,
+          duration: Duration(microseconds: 800), curve: Curves.ease);
+    });
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    if (timer != null) {
+      timer!.cancel();
+    }
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    print('hi');
     return Expanded(
       flex: 3,
       child: PageView(
-        children: [0, 1, 2, 3, 4, 5]
+        controller: pageController, //PageView 조종
+        children:
+        [0, 1, 2, 3, 4, 5]
             .map((e) => Image.asset('asset/img/$e.jpg'))
             .toList(),
+
       ),
     );
   }
