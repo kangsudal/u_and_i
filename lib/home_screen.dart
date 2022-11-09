@@ -35,9 +35,10 @@ class _BottomPart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       flex: 3,
-      child: Image.asset(
-        'asset/img/kunisudal.jpg',
-        fit: BoxFit.cover, //cover는 contain보단 좀 짤리지만 가로 너비를 꽉 채우기위해서
+      child: PageView(
+        children: [0, 1, 2, 3, 4, 5]
+            .map((e) => Image.asset('asset/img/$e.jpg'))
+            .toList(),
       ),
     );
   }
