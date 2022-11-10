@@ -53,7 +53,7 @@ class _BottomPartState extends State<_BottomPart> {
       }
       // print(nextPage);
       pageController.animateToPage(nextPage,
-          duration: Duration(microseconds: 800), curve: Curves.ease);
+          duration: Duration(seconds: 3), curve: Curves.ease);
     });
   }
 
