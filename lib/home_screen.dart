@@ -74,7 +74,7 @@ class _BottomPartState extends State<_BottomPart> {
       child: PageView(
         controller: pageController, //PageView 조종
         children:
-        [0, 1, 2, 3, 4, 5]
+        [0, 1, 2,]
             .map((e) => Image.asset('asset/img/$e.jpg'))
             .toList(),
 
