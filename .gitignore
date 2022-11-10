@@ -49,5 +49,5 @@ app.*.map.json
 asset/img/
 
 # Google Map api key
-/android/app/src/main/AndroidManifest.xml
-/ios/Runner/AppDelegate.swift
+android/app/src/main/AndroidManifest.xml
+ios/Runner/AppDelegate.swift
