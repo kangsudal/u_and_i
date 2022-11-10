@@ -47,3 +47,7 @@ app.*.map.json
 /android/app/release
 
 asset/img/
+
+# Google Map api key
+/android/app/src/main/AndroidManifest.xml
+/ios/Runner/AppDelegate.swift

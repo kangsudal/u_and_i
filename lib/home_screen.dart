@@ -48,12 +48,14 @@ class _BottomPartState extends State<_BottomPart> {
     timer = Timer.periodic(Duration(seconds: 3), (timer) {
       int currentPage = pageController.page!.toInt();
       int nextPage = currentPage + 1;
-      if (nextPage > 5) {
+      if (nextPage > 2) {
         nextPage = 0;
+        pageController.jumpToPage(nextPage);
+      } else {
+        // print(nextPage);
+        pageController.animateToPage(nextPage,
+            duration: Duration(seconds: 2), curve: Curves.ease);
       }
-      // print(nextPage);
-      pageController.animateToPage(nextPage,
-          duration: Duration(seconds: 3), curve: Curves.ease);
     });
   }
 
@@ -73,11 +75,11 @@ class _BottomPartState extends State<_BottomPart> {
       flex: 3,
       child: PageView(
         controller: pageController, //PageView 조종
-        children:
-        [0, 1, 2,]
-            .map((e) => Image.asset('asset/img/$e.jpg'))
-            .toList(),
-
+        children: [
+          0,
+          1,
+          2,
+        ].map((e) => Image.asset('asset/img/$e.jpg')).toList(),
       ),
     );
   }
