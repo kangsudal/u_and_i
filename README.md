@@ -4,6 +4,7 @@
 <p float="left">
   <img src="https://user-images.githubusercontent.com/32862869/203441559-10c4f0a4-fca8-4ef1-9907-64900dd3ad7c.png" width="200" height="400"/>
   <img src="https://user-images.githubusercontent.com/32862869/203441740-e2b78cdf-0b7f-4fec-8689-4d1b7ecef432.png" width="200" height="400"/>
+  <img src="https://user-images.githubusercontent.com/32862869/203450758-b551bfd6-ff1c-47d4-ac99-be840776083a.png" width="200" height="400"/>
 </p>
 
 직접 스와이핑과 자동 스크롤기능이 있는 앨범과 디데이 기능이 있는 어플 제작
